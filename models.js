@@ -2,13 +2,10 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const blogPostSchema = mongoose.Schema({
-  author: {
-    firstName: String,
-    lastName: String
-  },
+  
   title: { type: String, required: true },
   content: { type: String },
-  created: { type: Date, default: Date.now }
+  picture: { type: String }
 });
 
 
@@ -21,7 +18,7 @@ blogPostSchema.methods.serialize = function() {
     id: this._id,
     content: this.content,
     title: this.title,
-    image: this.image
+    picture: this.picture
   };
 };
 

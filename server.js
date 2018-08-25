@@ -55,7 +55,7 @@ app.get('/posts/:id', (req, res) => {
 });
 
 app.post('/posts', (req, res) => {
-  const requiredFields = ['title', 'image', 'content'];
+  const requiredFields = ['title', 'picture', 'content'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -64,11 +64,11 @@ app.post('/posts', (req, res) => {
       return res.status(400).send(message);
     }
   }
-
+console.log(req.body);
   BlogPost
     .create({
       title: req.body.title,
-      image: req.body.image,
+      picture: req.body.picture,
       content: req.body.content
       
     })
@@ -170,6 +170,6 @@ function closeServer() {
 
 if (require.main === module) {
     runServer(DATABASE_URL).catch(err => console.error(err));
-  };
+  }
 
 module.exports = { runServer, app, closeServer };

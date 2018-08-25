@@ -25,7 +25,12 @@ legend {
   padding-bottom: 25px;
 }
 /* Add a black background color to the top navigation */
+.dashboard-header {
+  padding-top: 15px;
+  color: white;
+  font-size: 30px;
 
+}
 .header {
   padding: 60px;
   text-align: center;
@@ -39,7 +44,7 @@ legend {
 
 .navbar {
   background-color: #333;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   overflow: hidden;
 }
 
@@ -245,6 +250,17 @@ input[type=submit] {
   max-width: 550px;
   padding: 20px;
   padding-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+#editPost {
+  margin: auto;
+  background-color: rgb(218, 218, 218);
+  width: 65%;
+  max-width: 550px;
+  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 50px;
   margin-bottom: 20px;
   text-align: center;
 }

@@ -15,7 +15,7 @@ mongoose.Promise = global.Promise;
 var blogPostSchema = mongoose.Schema({
     title: String,
     content: String,
-    image: String
+    picture: String
     
 });
 
@@ -38,7 +38,7 @@ blogPostSchema.methods.serialize = function() {
         id: this._id,
         content: this.content,
         title: this.title,
-        image: this.picture
+        picture: this.picture
     };
 };
 
