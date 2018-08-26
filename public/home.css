@@ -230,6 +230,7 @@ input[type=submit] {
   max-width: 550px;
   padding: 20px;
   padding-top: 20px;
+  padding-bottom: 50px;
   margin-bottom: 20px;
   text-align: center;
 }

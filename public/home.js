@@ -518,16 +518,8 @@ function postNewDetail() {
 
 function renderIndividualPost(result) {
     const id = result.id;
-    getIndividualPost(result);
+    getIndividualPost(id);
 }
-//handle post submit button
-// function submitPostButton() {
-//     $('.submit-btn').on('click', function (event) {
-//         console.log('Sign Up Clicked');
-//         event.preventDefault();
-
-//     });
-// }
 
 //EDIT POST
 function renderPostToEdit(response) {
