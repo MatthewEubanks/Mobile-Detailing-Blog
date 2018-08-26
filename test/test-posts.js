@@ -7,7 +7,7 @@ const expect = chai.expect;
 const {TEST_DATABASE_URL} = require('../config');
 const faker = require('faker');
 
-const {Entry} = require('../entries');
+const {Entry} = require('./models');
 const {app, runServer, closeServer} = require('../server');
 const {User} = require('../users');
 
@@ -77,7 +77,7 @@ describe('Journal entries API resource', function() {
 			// 3. prove the num of entries we got is equal to num in DB
 			let res;
 			return chai.request(app)
-			.get('/api/entries')
+			.get('/posts')
 			.set('Authorization', `Bearer ${jwt}`)
 			.then(function(_res) {
 				res=_res;
@@ -94,7 +94,7 @@ describe('Journal entries API resource', function() {
 			//Strategy: Make GET request and ensure the entries have the right fields
 			let resEntry;
 			return chai.request(app)
-			.get('/api/entries')
+			.get('/posts/')
 			.set('Authorization', `Bearer ${jwt}`)
 			.then(function(res) {
 				expect(res).to.have.status(200);
@@ -127,7 +127,7 @@ describe('Journal entries API resource', function() {
             .then(function(_entry) {
 		    myEntry = _entry;
 		    return chai.request(app)
-			  	  .get(`/api/entries/${myEntry.id}`)
+			  	  .get(`/posts/${myEntry.id}`)
 			  	  .set('Authorization', `Bearer ${jwt}`)
 			  	  .then(function(res) {
 			  	  	expect(res).to.have.status(200);
