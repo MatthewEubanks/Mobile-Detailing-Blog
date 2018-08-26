@@ -68,23 +68,26 @@ function homeButton() {
     });
 }
 
+//SINGLE POST PAGE
 function renderSinglePost(response) {
     return `
-    <div class="blogContainer"><div class="content">
-        <img src="${response.picture}">
-            <h3>
-                <a href ="#" id="${response.id}" class="title">${response.title}</a>
-            </h3>
-        <p>${response.content}</p>
-    </div>
-    <!--<div class="author">
-        <p>${response.author}</p>
-    </div> -->
-    <div class="edit" >
-        <button class="edit-button" id="${response.id}">Edit</button>    
-    </div>
-    <div class="delete">
-        <button class="delete-button">Delete</button>    
+    <div class="blogContainer" id="singlePost">
+        <div class="content">
+            <img src="${response.picture}">
+                <h3>
+                    <a href ="#" id="${response.id}" class="title">${response.title}</a>
+                </h3>
+            <p>${response.content}</p>
+        </div>
+        <!--<div class="author">
+            <p>${response.author}</p>
+        </div> -->
+        <div class="edit" >
+            <button class="edit-button" data-entryid="${response.id}">Edit</button>    
+        </div>
+        <div class="delete">
+            <button class="delete-button" data-entryid="${response.id}">Delete</button>    
+        </div>
     </div>
     `;
 }
@@ -330,7 +333,10 @@ function loginSuccess() {
                     sessionStorage.setItem('authToken', jwt);
                     sessionStorage.setItem('username', loginUser.username);
                     console.log('Login success2');
-                    showDashboard();
+                    console.log(jwt);
+                    console.log(data);
+                    console.log(loginUser.username );
+                    showDashboard(loginUser.username);
                 })
                 //call failed
                 .fail(function (err) {
@@ -360,8 +366,8 @@ function renderUserHome(userEntries) {
                 <legend align="center">My Detail Jobs</legend>
             </div>
             <section class="user-detail-posts">`;
-            for (var i = 0; i < userEntries.length; i++){
-                html += `<div class="blogContainer">
+    for (var i = 0; i < userEntries.length; i++) {
+        html += `<div class="blogContainer">
                     <div class="content">
                     <img src="${userEntries[i].picture}">
                         <h3>
@@ -372,8 +378,8 @@ function renderUserHome(userEntries) {
                         <p></p>
                     </div>
                 </div>`;
-                }
-        html += `</div>
+    }
+    html += `</div>
         <div class="blogPosts">
 
         </div>
@@ -482,51 +488,54 @@ function postNewDetail() {
         const content = $('#desc').val();
         //const author = req.user.id;
 
-        const newPostObject = {
+        const newPost = {
             title: title,
             picture: picture,
             content: content
         };
 
         $.ajax({
-            type: "POST",
-            url: "/posts",
-            data: JSON.stringify(newPostObject),
-            dataType: "json",
-            contentType: 'application/json',
-            headers: {
-                Authorization: `Bearer ${jwt}`
-            }
-        })
-        .done(function(result) {
-            console.log('made it to getIndividualPost');
-            renderIndividualPost(result);
-        })
-        .fail(function(jqXHR, error, errorThrown) {
-            console.error(jqXHR);
-            console.error(error);
-            console.error(errorThrown);
-        });
+                type: "POST",
+                url: "/posts",
+                data: JSON.stringify(newPost),
+                dataType: "json",
+                contentType: 'application/json',
+                headers: {
+                    Authorization: `Bearer ${jwt}`
+                }
+            })
+            .done(function (result) {
+                console.log('made it to getIndividualPost');
+                renderIndividualPost(result);
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.error(jqXHR);
+                console.error(error);
+                console.error(errorThrown);
+            });
     });
 }
+
 function renderIndividualPost(result) {
     const id = result.id;
     getIndividualPost(result);
 }
 //handle post submit button
-function submitPostButton() {
-    $('.submit-btn').on('click', function (event) {
-        console.log('Sign Up Clicked');
-        event.preventDefault();
+// function submitPostButton() {
+//     $('.submit-btn').on('click', function (event) {
+//         console.log('Sign Up Clicked');
+//         event.preventDefault();
 
-    });
-}
+//     });
+// }
 
 //EDIT POST
-function renderPostToEdit(body) {
+function renderPostToEdit(response) {
+    const id = response.id;
+
     return `
             <div class="container" id="editPost">
-                <form role="form" class="editPost" >
+                <form role="form" class="editPost" data-entryid="${response.id}" >
                     <div class="post-header">
                         <legend align="center">Edit Your Detail</legend>
                     </div>
@@ -535,7 +544,7 @@ function renderPostToEdit(body) {
                             <label for="title">Title</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="title" name="title" value="${body.title}" required>
+                            <input type="text" id="title" name="title" value="${response.title}" >
                         </div>
                     </div>
                     <div class="row">
@@ -543,7 +552,7 @@ function renderPostToEdit(body) {
                             <label for="picture">Image URL</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="picture" name="picture" value="${body.picture}" required>
+                            <input type="text" id="picture" name="picture" value="${response.picture}" >
                         </div>
                     </div>
                     <div class="row">
@@ -551,11 +560,11 @@ function renderPostToEdit(body) {
                             <label for="desc">Content</label>
                         </div>
                         <div class="col-75">
-                            <textarea rows="4" cols="40" form="newPost" maxlength="2000" id="desc" name="content" value="${body.content}" required></textarea>
+                            <textarea rows="4" cols="40" form="newPost" maxlength="2000" id="desc" name="content">${response.content}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="save-btn" id="${body.id}">
+                        <input type="submit" class="save-btn" value="Save" entryid="${id}">
                     </div>
                 </form>
             </div>
@@ -587,9 +596,9 @@ function retreivePostForEdit(id) {
 }
 
 function handleEditButton() {
-    $('.area').on('click', '.edit-button', function(event) {
+    $('.area').on('click', '.edit-button', function (event) {
         event.preventDefault();
-        const id = $(this).attr('id');
+        const id = $(this).data('entryid');
         console.log(this);
         console.log(id);
         retreivePostForEdit(id);
@@ -597,40 +606,77 @@ function handleEditButton() {
 }
 
 function saveEditButton() {
-    $('.area').on('click', '.save-btn', function (event) {
+    $('.area').on('submit', '.editPost', function (event) {
         console.log('Submit edit');
         event.preventDefault();
-        const title = $('#title').val();
-        const picture = $('#picture').val();
-        const content = $('#desc').val();
-        const id = $(this).attr('id');
+        let title = $('#title').val();
+        let picture = $('#picture').val();
+        let content = $('#desc').val();
+        const id = $(this).data('entryid');
+        console.log(id);
+        let putObject;
 
-        const newPostObject = {
-            title: title,
-            picture: picture,
-            content: content
-        };
+        if (id === undefined) {
+            console.log('ID is undefined');
+        } else {
+            putObject = {
+                id,
+                title,
+                picture,
+                content
+            };
+            
+        }
+        $.ajax({
+                type: 'PUT',
+                url: '/posts/' + id,
+                dataType: "json",
+                contentType: 'application/json',
+                data: JSON.stringify(putObject),
+                headers: {
+                    Authorization: `Bearer ${jwt}`
+                }
+            })
+            .done(function () {
+                console.log('made it to show');
+                showDashboard();
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.error(jqXHR);
+                console.error(error);
+                console.error(errorThrown);
+            });
+    });
+}
+
+//DELETE FUNCTIONS
+function handleDeleteButton() {
+    $('.area').on('click', '.delete-button', function (event) {
+        console.log('clicked delete button');
+        event.preventDefault();
+        const id = $(this).data('entryid');
+        console.log(id);
 
         $.ajax({
-            type: "PUT",
-            url: `/posts/${id}`,
-            data: JSON.stringify(newPostObject),
-            dataType: "json",
-            contentType: 'application/json',
-            headers: {
-                Authorization: `Bearer ${jwt}`
-            }
-        })
-        .done(function(result) {
-            console.log('made it to getIndividualPost');
-            renderIndividualPost(result);
-        })
-        .fail(function(jqXHR, error, errorThrown) {
-            console.error(jqXHR);
-            console.error(error);
-            console.error(errorThrown);
-        });
+                type: "DELETE",
+                url: '/posts/' + id + '?' + id,
+                dataType: "json",
+                contentType: 'application/json',
+                headers: {
+                    Authorization: `Bearer ${jwt}`
+                }
+            })
+            .done(function (result) {
+                console.log('made it to Delete Post');
+                showDashboard(result);
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.error(jqXHR);
+                console.error(error);
+                console.error(errorThrown);
+            });
     });
+
 }
 
 //LOGOUT
@@ -646,7 +692,6 @@ function logOutButton() {
 
 //EVENT HANDLERS
 function eventHandlers() {
-    showBlogPosts();
     handleNewPostBtn();
     handleTitleClick();
     handleHambugerClick();
@@ -661,6 +706,8 @@ function eventHandlers() {
     rememberUserLog();
     postNewDetail();
     handleEditButton();
+    handleDeleteButton();
+    saveEditButton();
 }
 
 $(eventHandlers);

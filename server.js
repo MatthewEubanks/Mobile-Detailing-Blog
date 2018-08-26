@@ -102,7 +102,8 @@ app.put('/posts/:id', (req, res) => {
   }
 
   const updated = {};
-  const updateableFields = ['title', 'content', 'author'];
+  const updateableFields = ['title', 'picture', 'content'];
+
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];
@@ -116,7 +117,7 @@ app.put('/posts/:id', (req, res) => {
 });
 
 
-app.delete('/:id', (req, res) => {
+app.delete('/posts/:id', (req, res) => {
   BlogPost
     .findByIdAndRemove(req.params.id)
     .then(() => {

@@ -264,6 +264,16 @@ input[type=submit] {
   margin-bottom: 20px;
   text-align: center;
 }
+#singlePost {
+  margin: auto;
+  background-color: rgb(218, 218, 218);
+  width: 65%;
+  max-width: 550px;
+  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  margin-bottom: 20px;
+}
 
 /* #signup {
   margin: auto;
