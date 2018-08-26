@@ -27,7 +27,7 @@ legend {
 /* Add a black background color to the top navigation */
 .dashboard-header {
   padding-top: 15px;
-  color: white;
+   color: white;
   font-size: 30px;
 
 }
@@ -35,7 +35,7 @@ legend {
   padding: 60px;
   text-align: center;
   background: url(photos/2932191.png) no-repeat center top;
-  background-color: white;
+  background-color: rgba(0,0,0,0.5);
   color: white;
   background-size: cover;
 }
