@@ -110,7 +110,7 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
- input[type="email"], input[type="password"], .blogContainer {
+ input[type="email"], input[type="password"] {
 	width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -150,7 +150,7 @@ input[type=submit]:hover {
   background-color: #71f77cd3
 }
 /* Style the container */
-.container {
+.container, .blogContainer {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
