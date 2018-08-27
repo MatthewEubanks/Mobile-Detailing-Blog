@@ -352,8 +352,8 @@ function loginSuccess() {
 //USER HOME PAGE
 function renderUserHome(userEntries) {
     var userName = sessionStorage.getItem("username");
-    var thisUserEntry = userEntries.filter(function(userEntries) {
-        return userEntries.username == userName;
+    var thisUserEntry = userEntries.filter(function(userEntry) {
+        return userEntry.username == userName;
     });
     let html = `
     <div class="navbar" id="myTopnav">

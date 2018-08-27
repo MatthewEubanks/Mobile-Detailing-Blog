@@ -41,7 +41,8 @@ describe("Blog Posts", function() {
     const newPost = {
       title: "Lorem ip some",
       content: "foo foo foo foo",
-      picture: "https://pixabay.com/get/ea30b8092cfd073ed1584d05fb1d4e97e07ee3d21cac104496f5c278a1eeb5bb_340.jpg"
+      picture: "https://pixabay.com/get/ea30b8092cfd073ed1584d05fb1d4e97e07ee3d21cac104496f5c278a1eeb5bb_340.jpg",
+      username: username
     };
     const expectedKeys = ["id"].concat(Object.keys(newPost));
 
@@ -57,6 +58,7 @@ describe("Blog Posts", function() {
         expect(res.body.title).to.equal(newPost.title);
         expect(res.body.content).to.equal(newPost.content);
         expect(res.body.author).to.equal(newPost.author);
+        expect(res.body.username).to.equal(newPost.username);
       });
   });
 
