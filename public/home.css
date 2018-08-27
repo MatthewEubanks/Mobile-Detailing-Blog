@@ -179,6 +179,7 @@ input[type=submit]:hover, .edit-button:hover {
   padding: 20px;
   max-width: 550px;
   margin: auto;
+  padding-bottom: 20px;
 }
 .blogContainer {
   margin-top: 15px;
@@ -262,6 +263,9 @@ input[type=submit]:hover, .edit-button:hover {
   .container {
     padding-bottom: 30px;
     width: 85%;
+  }
+  .blogContainer {
+    padding-bottom: 35px;
   }
 }
 /* input[type="desc"] {
