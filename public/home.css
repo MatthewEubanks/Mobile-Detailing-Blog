@@ -157,6 +157,9 @@ input[type=submit]:hover {
   max-width: 550px;
   margin: auto;
 }
+.blogContainer {
+  margin-top: 15px;
+}
 /* Floating column for labels: 25% width */
 .col-25 {
   float: left;
