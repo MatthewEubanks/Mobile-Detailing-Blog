@@ -12,7 +12,6 @@ function rememberUserLog() {
                     Authorization: `Bearer ${sessionStorage.getItem('authToken')}`
                 },
                 success: function (res) {
-                    console.log(res);
                     jwt = res.authToken;
                     sessionStorage.setItem('authToken', jwt);
                     showDashboard(sessionStorage.getItem('username'));
@@ -56,12 +55,10 @@ function displayHomePage() {
     $('.new').hide();
     $('.blogPosts').html(showLogin);
     $('.blogPosts').show();
-    console.log('Display Home');
 }
 
 function homeButton() {
     $('.area').on('click', '.home', function (event) {
-        console.log('Home button clicked');
         event.preventDefault();
         displayHomePage();
 
@@ -98,7 +95,6 @@ function displayIndividualPost(response) {
 }
 
 function getIndividualPost(id, callback) {
-    console.log(id);
     //const newId = id.id;
     $.ajax({
         type: "GET",
@@ -109,7 +105,6 @@ function getIndividualPost(id, callback) {
             xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('authToken'));
         },
         success: function (response) {
-            console.log('reachec display individual');
             displayIndividualPost(response);
         }
     });
@@ -117,9 +112,7 @@ function getIndividualPost(id, callback) {
 
 function handleTitleClick() {
     $('.area').on('click', '.title', function () {
-        console.log('Title of Post clicked');
         const id = $(this).attr('id');
-        console.log(id);
         getIndividualPost(id);
     });
 }
@@ -196,7 +189,6 @@ function handleSignUpClick() {
 
 function signUpSuccess() {
     $('.area').on('submit', '.signUp', function (event) {
-        console.log('SignUp Success');
         event.preventDefault();
         //get values from sign up form
         const firstName = $('#fName').val();
@@ -291,7 +283,6 @@ function displayLoginPage() {
 //handle login button clicked
 function handleLoginButton() {
     $('.login').on('click', function (event) {
-        console.log('Login Clicked');
         event.preventDefault();
         displayLoginPage();
     });
@@ -300,7 +291,6 @@ function handleLoginButton() {
 //authentication
 function loginSuccess() {
     $('.area').on('submit', '.login', function (event) {
-        console.log('Login Success');
         event.preventDefault();
         //get inputs
         const username = $('#email').val();
@@ -319,7 +309,6 @@ function loginSuccess() {
                 username: username,
                 password: password
             };
-            console.log(loginUser);
             $.ajax({
                     type: "POST",
                     url: "/auth/login",
@@ -332,15 +321,10 @@ function loginSuccess() {
                     jwt = data.authToken;
                     sessionStorage.setItem('authToken', jwt);
                     sessionStorage.setItem('username', loginUser.username);
-                    console.log('Login success2');
-                    console.log(jwt);
-                    console.log(data);
-                    console.log(loginUser.username );
                     showDashboard(loginUser.username);
                 })
                 //call failed
                 .fail(function (err) {
-                    console.err(err);
                     alert('Login Failed. Try again or Sign Up.');
                 });
         }
@@ -350,7 +334,7 @@ function loginSuccess() {
 //USER HOME PAGE
 function renderUserHome(userEntries) {
     var userName = sessionStorage.getItem("username");
-    var thisUserEntry = userEntries.filter(function(userEntry) {
+    var thisUserEntry = userEntries.filter(function (userEntry) {
         return userEntry.username == userName;
     });
     let html = `
@@ -411,7 +395,6 @@ function showDashboard(user) {
             }
         })
         .done(function (result) {
-            console.log(result);
             displayDashboard(result);
         })
         .fail(function (err) {
@@ -421,7 +404,6 @@ function showDashboard(user) {
 //handle dashboard nav button
 function dashboardButton() {
     $('.area').on('click', '.dashboard', function (event) {
-        console.log('Dashboard nav button clicked');
         event.preventDefault();
         showDashboard();
     });
@@ -477,7 +459,6 @@ function displayNewPostPage() {
 //handle new detail button clicked
 function handleNewPostBtn() {
     $('.area').on('click', '.newDetail', function (event) {
-        console.log('New Detail Clicked');
         event.preventDefault();
         displayNewPostPage();
     });
@@ -485,7 +466,6 @@ function handleNewPostBtn() {
 //send post request
 function postNewDetail() {
     $('.area').on('submit', '.newPost', function (event) {
-        console.log('Post new detail');
         event.preventDefault();
         const title = $('#title').val();
         const picture = $('#picture').val();
@@ -511,7 +491,6 @@ function postNewDetail() {
                 }
             })
             .done(function (result) {
-                console.log('made it to getIndividualPost');
                 renderIndividualPost(result);
             })
             .fail(function (jqXHR, error, errorThrown) {
@@ -586,8 +565,6 @@ function retreivePostForEdit(id) {
             xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem('authToken'));
         },
         success: function (response) {
-            console.log('reachec display for edit');
-            console.log(response);
             showEdit(response);
         }
     });
@@ -597,21 +574,18 @@ function handleEditButton() {
     $('.area').on('click', '.edit-button', function (event) {
         event.preventDefault();
         const id = $(this).data('entryid');
-        console.log(this);
-        console.log(id);
         retreivePostForEdit(id);
     });
 }
 
 function saveEditButton() {
     $('.area').on('submit', '.editPost', function (event) {
-        console.log('Submit edit');
         event.preventDefault();
         let title = $('#title').val();
         let picture = $('#picture').val();
         let content = $('#desc').val();
         const id = $(this).data('entryid');
-        console.log(id);
+
         let putObject;
 
         if (id === undefined) {
@@ -623,7 +597,7 @@ function saveEditButton() {
                 picture,
                 content
             };
-            
+
         }
         $.ajax({
                 type: 'PUT',
@@ -636,7 +610,6 @@ function saveEditButton() {
                 }
             })
             .done(function () {
-                console.log('made it to show');
                 showDashboard();
             })
             .fail(function (jqXHR, error, errorThrown) {
@@ -650,10 +623,8 @@ function saveEditButton() {
 //DELETE FUNCTIONS
 function handleDeleteButton() {
     $('.area').on('click', '.delete-button', function (event) {
-        console.log('clicked delete button');
         event.preventDefault();
         const id = $(this).data('entryid');
-        console.log(id);
 
         $.ajax({
                 type: "DELETE",
@@ -665,7 +636,6 @@ function handleDeleteButton() {
                 }
             })
             .done(function (result) {
-                console.log('made it to Delete Post');
                 showDashboard(result);
             })
             .fail(function (jqXHR, error, errorThrown) {
@@ -681,7 +651,6 @@ function handleDeleteButton() {
 function logOutButton() {
     $('.area').on('click', '.logout-button', function (event) {
         event.preventDefault();
-        console.log('Logged Out');
         jwt = null;
         sessionStorage.clear();
         location.reload();

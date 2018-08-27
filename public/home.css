@@ -81,26 +81,9 @@ legend {
   color: white;
 }
 
-/* Column container */
-
-/* .row {
-  display: flex;
-  flex-wrap: wrap;
-} */
-
 .author {
   margin-bottom: 0;
 }
-
-/* .blogContainer {
-  margin: auto;
-  background-color: rgb(218, 218, 218);
-  width: 65%;
-  padding: 20px;
-  padding-top: 20px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-} */
 
 img {
   min-width: 100%;
@@ -314,21 +297,6 @@ input[type=submit]:hover,
   }
 }
 
-/* input[type="desc"] {
-  display: block;
-  width: 322px;
-  padding: 5px;
-  margin: 10px auto 20px auto;
-  font-size: 18px;
-  border: 2px solid #e6e6e6;
-  background-color: #f2f2f2;
-  height: 100px !important;
-} */
-
-/* label {
-	font-size: 18px;
-} */
-
 .submit-btn,
 .signUp-btn,
 .login-btn {
@@ -349,41 +317,6 @@ input[type=submit]:hover,
   cursor: pointer;
   background-color: #71f77cd3;
 }
-
-/* #newPost {
-  margin: auto;
-  background-color: rgb(218, 218, 218);
-  width: 65%;
-  max-width: 550px;
-  padding: 20px;
-  padding-top: 20px;
-  padding-bottom: 50px;
-  margin-bottom: 20px;
-  text-align: center;
-} */
-
-/* #editPost {
-  margin: auto;
-  background-color: rgb(218, 218, 218);
-  width: 65%;
-  max-width: 550px;
-  padding: 20px;
-  padding-top: 20px;
-  padding-bottom: 50px;
-  margin-bottom: 20px;
-  text-align: center;
-} */
-
-/* #singlePost {
-  margin: auto;
-  background-color: rgb(218, 218, 218);
-  min-width: 350px;
-  max-width: 550px;
-  padding: 20px;
-  padding-top: 20px;
-  padding-bottom: 50px;
-  margin-bottom: 20px;
-} */
 
 @media screen and (max-width: 700px) {
   .row {
