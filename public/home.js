@@ -375,9 +375,9 @@ function renderUserHome(userEntries) {
     for (var i = 0; i < thisUserEntry.length; i++) {
         html += `<div class="blogContainer">
                     <div class="content">
-                    <img src="${thisUserEntry.picture}">
+                    <img src="${thisUserEntry[i].picture}">
                         <h3>
-                            <a href ="#" id="${thisUserEntry.id}" class="title">${thisUserEntry.title}</a>
+                            <a href ="#" id="${thisUserEntry[i].id}" class="title">${thisUserEntry[i].title}</a>
                         </h3>
                     </div>
                     <div class="author">
