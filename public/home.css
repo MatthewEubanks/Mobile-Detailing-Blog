@@ -82,7 +82,7 @@ legend {
 .author {
   margin-bottom: 0;
 }
-.blogContainer {
+/* .blogContainer {
   margin: auto;
   background-color: rgb(218, 218, 218);
   width: 65%;
@@ -90,7 +90,7 @@ legend {
   padding-top: 20px;
   margin-bottom: 20px;
   margin-top: 20px;
-}
+} */
 img {
   min-width: 100%;
   max-width: 100%;
@@ -110,7 +110,7 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
- input[type="email"], input[type="password"] {
+ input[type="email"], input[type="password"], .blogContainer {
 	width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -223,7 +223,7 @@ input[type=submit]:hover {
 }
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
+  .col-25, .col-75, .edit-button, .delete-button, input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
