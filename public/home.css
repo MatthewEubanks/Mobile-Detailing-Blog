@@ -153,7 +153,7 @@ input[type=submit] {
   float: right;
 }
 .delete-button {
-  margin-top: 10px
+  margin-right: 10px;
   background-color: rgb(214, 39, 39);
   color: white;
   padding: 12px 20px;
