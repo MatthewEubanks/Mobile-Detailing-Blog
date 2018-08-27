@@ -285,7 +285,7 @@ input[type=submit]:hover {
 	background-color: #71f77cd3;
 }
 
-#newPost {
+/* #newPost {
   margin: auto;
   background-color: rgb(218, 218, 218);
   width: 65%;
@@ -295,7 +295,7 @@ input[type=submit]:hover {
   padding-bottom: 50px;
   margin-bottom: 20px;
   text-align: center;
-}
+} */
 
 #editPost {
   margin: auto;
