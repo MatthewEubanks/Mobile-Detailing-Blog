@@ -60,10 +60,10 @@ describe('Journal entries API resource', function() {
 		})
 		.then(function(res) {
 			jwt = res.body.authToken;
-		return seedJournalEntriesData();
+		return seedDB();
 	    });
 	})
-	.after(function() {
+	.afterEach(function() {
 		return tearDownDb();
 	})
 	.after(function() {
