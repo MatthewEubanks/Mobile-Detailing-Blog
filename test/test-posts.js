@@ -7,7 +7,7 @@ const expect = chai.expect;
 const {TEST_DATABASE_URL} = require('../config');
 const faker = require('faker');
 
-const {Entry} = require('./models');
+const {Entry} = require('../models');
 const {app, runServer, closeServer} = require('../server');
 const {User} = require('../users');
 
