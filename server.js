@@ -69,7 +69,8 @@ console.log(req.body);
     .create({
       title: req.body.title,
       picture: req.body.picture,
-      content: req.body.content
+      content: req.body.content,
+      username:  req.body.username
       
     })
     .then(blogPost => res.status(201).json(blogPost.serialize()))
