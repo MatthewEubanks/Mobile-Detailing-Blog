@@ -31,7 +31,8 @@ describe("Blog Posts", function() {
             "id",
             "title",
             "content",
-            "picture"
+            "picture",
+            "username"
           );
         });
       });
@@ -42,7 +43,7 @@ describe("Blog Posts", function() {
       title: "Lorem ip some",
       content: "foo foo foo foo",
       picture: "https://pixabay.com/get/ea30b8092cfd073ed1584d05fb1d4e97e07ee3d21cac104496f5c278a1eeb5bb_340.jpg",
-      username: username
+      username: "demo@demo.com"
     };
     const expectedKeys = ["id"].concat(Object.keys(newPost));
 
