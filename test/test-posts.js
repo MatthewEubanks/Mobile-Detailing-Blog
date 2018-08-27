@@ -7,7 +7,7 @@ const expect = chai.expect;
 const {TEST_DATABASE_URL} = require('../config');
 const faker = require('faker');
 
-const {Entry} = require('../models');
+const {BlogPost} = require('../models');
 const {app, runServer, closeServer} = require('../server');
 const {User} = require('../users');
 
@@ -30,7 +30,7 @@ function seedDB() {
 	for (let i=1; i<=10; i++) {
 		seedData.push(generatePost());
 	}
-	return Entry.insertMany(seedData);
+	return BlogPost.insertMany(seedData);
 }
 
 function tearDownDb() {
@@ -83,7 +83,7 @@ describe('Journal entries API resource', function() {
 				res=_res;
 				expect(res).to.have.status(200);
 				expect(res.body.entries).to.have.lengthOf.at.least(1);
-				return Entry.count();
+				return BlogPost.count();
 			})
 			.then(function(count) {
 				expect(res.body.entries).to.have.lengthOf(count);
@@ -107,7 +107,7 @@ describe('Journal entries API resource', function() {
 					expect(entry).to.include.keys('title', 'picture', 'content');
 				});
 				resEntry = res.body.entries[0];
-				return Entry.findById(resEntry.id);
+				return BlogPost.findById(resEntry.id);
 			})
 			.then(function(entry) {
 				expect(resEntry.id).to.equal(entry.id);
@@ -122,7 +122,7 @@ describe('Journal entries API resource', function() {
 		
 		it('should get entry by ID', function() {
 			let myEntry;
-			Entry
+			BlogPost
 			.findOne()
             .then(function(_entry) {
 		    myEntry = _entry;
@@ -162,7 +162,7 @@ describe('Journal entries API resource', function() {
 				expect(res.body.memories).to.equal(newEntry.memories);
 				expect(res.body.words).to.equal(newEntry.words);
 				expect(res.body.morePhotos[0]).to.equal(newEntry.morePhotos[0]);
-				return Entry.findById(res.body.id);
+				return BlogPost.findById(res.body.id);
 			})
 			.then(function(entry) {
 				expect(entry.title).to.equal(newEntry.title);
@@ -188,7 +188,7 @@ describe('Journal entries API resource', function() {
 				description: 'Easy Wax'
 			};
 
-			return Entry
+			return BlogPost
 			  .findOne()
 			  .then(function(entry) {
 			  	updateData.id = entry.id;
@@ -201,7 +201,7 @@ describe('Journal entries API resource', function() {
 			  .then(function(res) {
 			  	expect(res).to.have.status(204);
 
-			  	return Entry.findById(updateData.id);
+			  	return BlogPost.findById(updateData.id);
 			  })
 			  .then(function(entry) {
 			  	expect(entry.title).to.equal(updateData.title);
@@ -218,7 +218,7 @@ describe('Journal entries API resource', function() {
 		// 4. Prove the entry with that id doesn't exist in db
 		it('should delete an entry by id', function() {
 			let entry;
-			return Entry
+			return BlogPost
 			  .findOne()
 			  .then(function(_entry) {
 			  	entry=_entry;
@@ -229,7 +229,7 @@ describe('Journal entries API resource', function() {
 			  })
 			  .then(function(res) {
 			  	expect(res).to.have.status(204);
-			  	return Entry.findById(entry.id);
+			  	return BlogPost.findById(entry.id);
 			  })
 			  .then(function(_entry) {
 			  	expect(_entry).to.be.null;
