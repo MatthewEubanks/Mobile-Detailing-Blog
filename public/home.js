@@ -276,6 +276,8 @@ function renderLoginPage() {
         <div class="form-group">
             <button type="submit" class="login-btn">Log In</button>
                 <p>Don't have an account? <a href="" class ="signup">Sign up</a></p>
+                <p><strong>Demo email:</strong> demo@demo.com</p>
+                <p><strong>Demo Password:</strong> demouser</p>
         </div>
     </form>
 </div>
@@ -349,6 +351,9 @@ function loginSuccess() {
 
 //USER HOME PAGE
 function renderUserHome(userEntries) {
+    var thisUserEntry = userEntries.filter(function(userEntries) {
+        return userEntries == username;
+    })
     let html = `
     <div class="navbar" id="myTopnav">
         <div class="user-nav">
@@ -366,12 +371,12 @@ function renderUserHome(userEntries) {
                 <legend align="center">My Detail Jobs</legend>
             </div>
             <section class="user-detail-posts">`;
-    for (var i = 0; i < userEntries.length; i++) {
+    for (var i = 0; i < thisUserEntry.length; i++) {
         html += `<div class="blogContainer">
                     <div class="content">
-                    <img src="${userEntries[i].picture}">
+                    <img src="${thisUserEntry[i].picture}">
                         <h3>
-                            <a href ="#" id="${userEntries[i].id}" class="title">${userEntries[i].title}</a>
+                            <a href ="#" id="${thisUserEntry[i].id}" class="title">${thisUserEntry[i].title}</a>
                         </h3>
                     </div>
                     <div class="author">
