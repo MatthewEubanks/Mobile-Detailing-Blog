@@ -183,6 +183,7 @@ input[type=submit]:hover, .edit-button:hover {
 }
 .blogContainer {
   margin-top: 15px;
+  padding-bottom: 50px;
 }
 /* Floating column for labels: 25% width */
 .col-25 {
@@ -265,7 +266,7 @@ input[type=submit]:hover, .edit-button:hover {
     width: 85%;
   }
   .blogContainer {
-    padding-bottom: 35px;
+    padding-bottom: 75px;
   }
 }
 /* input[type="desc"] {
