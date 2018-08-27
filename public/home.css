@@ -314,16 +314,16 @@ input[type=submit]:hover, .edit-button {
   margin-bottom: 20px;
   text-align: center;
 }
-#singlePost {
+/* #singlePost {
   margin: auto;
   background-color: rgb(218, 218, 218);
-  width: 65%;
+  min-width: 350px;
   max-width: 550px;
   padding: 20px;
   padding-top: 20px;
   padding-bottom: 50px;
   margin-bottom: 20px;
-}
+} */
 
 
 
