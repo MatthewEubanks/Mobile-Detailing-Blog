@@ -63,7 +63,7 @@ describe('Journal entries API resource', function() {
 		return seedJournalEntriesData();
 	    });
 	})
-	.afterEach(function() {
+	.after(function() {
 		return tearDownDb();
 	})
 	.after(function() {
