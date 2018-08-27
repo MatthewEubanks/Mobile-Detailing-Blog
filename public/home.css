@@ -154,7 +154,6 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   float: right;
-  transition: background-color 0.5s ease;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .delete-button {
@@ -162,12 +161,13 @@ input[type=submit] {
   color: white;
   padding: 12px 20px;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   float: center;
   margin-top: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-input[type=submit]:hover, .edit-button {
+input[type=submit]:hover, .edit-button:hover {
   background-color: #71f77cd3
 }
 /* Style the container */
@@ -303,7 +303,7 @@ input[type=submit]:hover, .edit-button {
   text-align: center;
 } */
 
-#editPost {
+/* #editPost {
   margin: auto;
   background-color: rgb(218, 218, 218);
   width: 65%;
@@ -313,7 +313,7 @@ input[type=submit]:hover, .edit-button {
   padding-bottom: 50px;
   margin-bottom: 20px;
   text-align: center;
-}
+} */
 /* #singlePost {
   margin: auto;
   background-color: rgb(218, 218, 218);
