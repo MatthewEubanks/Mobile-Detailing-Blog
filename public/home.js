@@ -82,10 +82,8 @@ function renderSinglePost(response) {
         <!--<div class="author">
             <p>${response.author}</p>
         </div> -->
-        <div class="edit" >
+        <div class="change-buttons" >
             <button class="edit-button" data-entryid="${response.id}">Edit</button>    
-        </div>
-        <div class="delete">
             <button class="delete-button" data-entryid="${response.id}">Delete</button>    
         </div>
     </div>
@@ -132,7 +130,7 @@ function renderSignUp() {
     <div class="container" id="signupCntnr">
     <form role="form" class="signUp" id="signUp">
         <div class="signUp-header">
-            <legend align="center">Sign Up</legend>
+            <legend align="center"><strong>Sign Up</strong></legend>
         </div>
         <div class="row">
             <div class="col-25">
@@ -255,7 +253,7 @@ function renderLoginPage() {
     <div class="container" id="login-cntnr">
     <form role="form" class="login" id="login">
         <div class="login-header">
-            <legend align="center">Log In to Start Posting</legend>
+            <legend align="center"><strong>Log In to Start Posting</strong></legend>
         </div>
         <div class="row">
             <div class="col-25">

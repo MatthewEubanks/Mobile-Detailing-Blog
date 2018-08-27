@@ -170,6 +170,9 @@ input[type=submit] {
 input[type=submit]:hover, .edit-button:hover {
   background-color: #71f77cd3
 }
+.delete-button:hover {
+  background-color: #f77171d3
+}
 /* Style the container */
 .container, .blogContainer {
   border-radius: 5px;
@@ -257,8 +260,9 @@ input[type=submit]:hover, .edit-button:hover {
    margin: 0; 
    padding: auto;
   }
-  .blogContainer {
+  .container {
     padding-bottom: 30px;
+    width: 85%;
   }
 }
 /* input[type="desc"] {
