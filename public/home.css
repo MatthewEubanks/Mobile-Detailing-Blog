@@ -146,7 +146,28 @@ input[type=submit] {
   margin-top: 15px;
   
 }
-input[type=submit]:hover {
+.edit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  transition: background-color 0.5s ease;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.delete-button {
+  background-color: rgb(216, 56, 56);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  float: right;
+  margin-top: 15px;
+}
+input[type=submit]:hover, .edit-button {
   background-color: #71f77cd3
 }
 /* Style the container */
@@ -181,29 +202,8 @@ input[type=submit]:hover {
   clear: both;
 }
 
-.edit-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-  transition: background-color 0.5s ease;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-.delete-button {
-  margin-right: 10px;
-  background-color: rgb(214, 39, 39);
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-  transition: background-color 0.5s ease;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
+
+
 
 .row {
   margin-top: 10px;
@@ -245,7 +245,7 @@ input[type=submit]:hover {
     text-align: left;
   }
 
-  input[type=text], select, textarea, .login-form, .signUp-form{
+  input[type=text], select, textarea, .login-form, .signUp-form, .blogContainer {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -256,6 +256,9 @@ input[type=submit]:hover {
   .login {
    margin: 0; 
    padding: auto;
+  }
+  .blogContainer {
+
   }
 }
 /* input[type="desc"] {
