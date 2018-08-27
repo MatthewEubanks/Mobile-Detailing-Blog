@@ -492,12 +492,14 @@ function postNewDetail() {
         const title = $('#title').val();
         const picture = $('#picture').val();
         const content = $('#desc').val();
+        const username = sessionStorage.getItem("username");
         //const author = req.user.id;
 
         const newPost = {
             title: title,
             picture: picture,
-            content: content
+            content: content,
+            username: username
         };
 
         $.ajax({

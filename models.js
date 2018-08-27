@@ -19,7 +19,8 @@ blogPostSchema.methods.serialize = function() {
     id: this._id,
     content: this.content,
     title: this.title,
-    picture: this.picture
+    picture: this.picture,
+    username: this.username
   };
 };
 
