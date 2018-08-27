@@ -174,8 +174,8 @@ function renderSignUp() {
                 <input class="signUp-form" type="password" id="password-confirm" name="password" placeholder="Confirm Password" required>
             </div>
         </div>
-        <div class="form-group">
-            <button type="submit" class="signUp-btn">Submit</button>
+        <div class="row">
+            <input type="submit" class="signUp-btn" value="Submit">
         </div>
     </form>
 </div>
@@ -273,12 +273,12 @@ function renderLoginPage() {
                 <input class="login-form" type="password" id="password" name="password" placeholder="Password" required>
             </div>
         </div>
-        <div class="form-group">
-            <button type="submit" class="login-btn">Log In</button>
-                <p>Don't have an account? <a href="" class ="signup">Sign up</a></p>
+        <div class="row">
+            <input type="submit" class="login-btn" value="Log In"> 
+        </div>
+        <p>Don't have an account? <a href="" class ="signup">Sign up</a></p>
                 <p><strong>Demo email:</strong> demo@demo.com</p>
                 <p><strong>Demo Password:</strong> demouser</p>
-        </div>
     </form>
 </div>
             `;
