@@ -180,6 +180,7 @@ input[type=submit]:hover, .edit-button:hover {
   max-width: 550px;
   margin: auto;
   padding-bottom: 20px;
+  margin-bottom: 15px;
 }
 #singlePost {
   margin-top: 15px;
