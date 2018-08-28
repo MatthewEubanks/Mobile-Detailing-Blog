@@ -43,7 +43,7 @@ function showBlogPosts() {
         for (let i = 0; i < data.length; i++) {
             $(`<div class="blogContainer"><div class="content">
                 <img src="${data[i].picture}" alt="Car Picture">
-                <h3><a href ="#" id="${data[i].id}" class="title">${data[i].title}</a></h3>
+                <h3><a href ="#" id="${data[i].id}" class="title" role="link">${data[i].title}</a></h3>
                 </div>`).appendTo(".blogPosts");
         }
     });
@@ -71,7 +71,7 @@ function renderSinglePost(response) {
     var userName = sessionStorage.getItem("username");
     var singlePost = `
     <div class="blogContainer" id="singlePost">
-        <div class="content">
+        <div class="content" role="article">
             <img src="${response.picture}" alt="Car Picture">
                 <h3>
                     <a href ="#" id="${response.id}" class="title">${response.title}</a>
@@ -82,8 +82,8 @@ function renderSinglePost(response) {
         singlePost += `</div>`;
     } else {
         singlePost += `<div class="change-buttons" >
-            <button class="edit-button" data-entryid="${response.id}">Edit</button>    
-            <button class="delete-button" data-entryid="${response.id}">Delete</button>    
+            <button class="edit-button" data-entryid="${response.id}" role="button">Edit</button>    
+            <button class="delete-button" data-entryid="${response.id}" role="button">Delete</button>    
         </div>
     </div>
     `;
@@ -136,7 +136,7 @@ function renderSignUp() {
                 <label for="fName">First Name</label>
             </div>
             <div class="col-75">
-                <input class="signUp-form" type="text" id="fName" name="firstName" placeholder="Your Name..." required>
+                <input class="signUp-form" type="text" id="fName" name="firstName" placeholder="Your Name..." role="textbox" required>
             </div>
         </div>
         <div class="row">
@@ -144,7 +144,7 @@ function renderSignUp() {
                 <label for="lName">Last Name</label>
             </div>
             <div class="col-75">
-                <input class="signUp-form" type="text" id="lName" name="lastName" placeholder="Your Name..." required>
+                <input class="signUp-form" type="text" id="lName" name="lastName" placeholder="Your Name..." role="textbox" required>
             </div>
         </div>
         <div class="row">
@@ -152,7 +152,7 @@ function renderSignUp() {
                 <label for="email">Email</label>
             </div>
             <div class="col-75">
-                <input class="signUp-form" type="Email" id="email" name="email" placeholder="Email Address" required>
+                <input class="signUp-form" type="Email" id="email" name="email" placeholder="Email Address" role="textbox" required>
             </div>
         </div>
         <div class="row">
@@ -160,7 +160,7 @@ function renderSignUp() {
                 <label for="password">Password</label>
             </div>
             <div class="col-75">
-                <input class="signUp-form" type="password" id="password" name="password" placeholder="Password" required>
+                <input class="signUp-form" type="password" id="password" name="password" placeholder="Password" role="textbox" required>
             </div>
         </div>
         <div class="row">
@@ -168,18 +168,11 @@ function renderSignUp() {
                 <label for="password-confirm">Confirm</label>
             </div>
             <div class="col-75">
-                <input class="signUp-form" type="password" id="password-confirm" name="password" placeholder="Confirm Password" required>
-            </div>
-        </div>
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>Account created! Please, log in!</p>
+                <input class="signUp-form" type="password" id="password-confirm" name="password" placeholder="Confirm Password" role="textbox" required>
             </div>
         </div>
         <div class="row">
-            <input type="submit" class="signUp-btn" value="Submit">
+            <input type="submit" class="signUp-btn" value="Submit" role="button">
         </div>
     </form>
 </div>
@@ -257,7 +250,7 @@ function signUpSuccess() {
 function renderLoginPage() {
     return `
     <div class="container" id="login-cntnr">
-    <form role="form" class="login" id="login">
+    <form role="form" class="login" id="login" role="form">
         <div class="login-header">
             <legend align="center"><strong>Log In to Start Posting</strong></legend>
         </div>
@@ -266,7 +259,7 @@ function renderLoginPage() {
                 <label for="email">Email</label>
             </div>
             <div class="col-75">
-                <input class="login-form" type="Email" id="email" name="email" placeholder="Email Address" required>
+                <input class="login-form" type="Email" id="email" name="email" placeholder="Email Address" role="textbox" required>
             </div>
         </div>
         <div class="row">
@@ -274,13 +267,13 @@ function renderLoginPage() {
                 <label for="password">Password</label>
             </div>
             <div class="col-75">
-                <input class="login-form" type="password" id="password" name="password" placeholder="Password" required>
+                <input class="login-form" type="password" id="password" name="password" placeholder="Password" role="textbox" required>
             </div>
         </div>
         <div class="row">
-            <input type="submit" class="login-btn" value="Log In"> 
+            <input type="submit" class="login-btn" value="Log In" role="button"> 
         </div>
-        <p>Don't have an account? <a href="" class ="signup">Sign up</a></p>
+        <p>Don't have an account? <a href="" class ="signup" role="link">Sign up</a></p>
                 <p><strong>Demo email:</strong> demo@demo.com</p>
                 <p><strong>Demo Password:</strong> demouser</p>
     </form>
@@ -356,7 +349,7 @@ function renderUserHome(userEntries) {
         return userEntry.username == userName;
     });
     let html = `
-    <div class="navbar" id="myTopnav">
+    <div class="navbar" id="myTopnav" role="navigation">
         <div class="user-nav">
             <a href="#" class="dashboard" id="active">Dashboard</a>
             <a href="#" class="newDetail">New Detail</a>
@@ -377,7 +370,7 @@ function renderUserHome(userEntries) {
                     <div class="content">
                     <img src="${thisUserEntry[i].picture}" alt="Car Picture">
                         <h3>
-                            <a href ="#" id="${thisUserEntry[i].id}" class="title">${thisUserEntry[i].title}</a>
+                            <a href ="#" id="${thisUserEntry[i].id}" class="title" role="link">${thisUserEntry[i].title}</a>
                         </h3>
                     </div>
                     <div class="author">
@@ -441,7 +434,7 @@ function renderNewPost() {
                             <label for="title">Title</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="title" name="title" placeholder="Title" required>
+                            <input type="text" id="title" name="title" placeholder="Title" role="textbox" required>
                         </div>
                     </div>
                     <div class="row">
@@ -449,7 +442,7 @@ function renderNewPost() {
                             <label for="picture">Image URL</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="picture" name="picture" placeholder="Image URL" required>
+                            <input type="text" id="picture" name="picture" placeholder="Image URL" role="textbox" required>
                         </div>
                     </div>
                     <div class="row">
@@ -457,11 +450,11 @@ function renderNewPost() {
                             <label for="desc">Content</label>
                         </div>
                         <div class="col-75">
-                            <textarea rows="4" cols="40" form="newPost" maxlength="2000" id="desc" name="content" placeholder="Write Something..." required></textarea>
+                            <textarea rows="4" cols="40" form="newPost" maxlength="2000" id="desc" name="content" placeholder="Write Something..." role="textbox" required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="save-btn">
+                        <input type="submit" class="save-btn" role="button">
                     </div>
                 </form>
             </div>
@@ -540,7 +533,7 @@ function renderPostToEdit(response) {
                             <label for="title">Title</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="title" name="title" value="${response.title}" >
+                            <input type="text" id="title" name="title" value="${response.title}" role="textbox">
                         </div>
                     </div>
                     <div class="row">
@@ -548,7 +541,7 @@ function renderPostToEdit(response) {
                             <label for="picture">Image URL</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="picture" name="picture" value="${response.picture}">
+                            <input type="text" id="picture" name="picture" value="${response.picture}" role="textbox">
                         </div>
                     </div>
                     <div class="row">
@@ -556,11 +549,11 @@ function renderPostToEdit(response) {
                             <label for="desc">Content</label>
                         </div>
                         <div class="col-75">
-                            <textarea rows="4" cols="40" form="newPost" maxlength="2000" id="desc" name="content">${response.content}</textarea>
+                            <textarea rows="4" cols="40" form="newPost" maxlength="2000" id="desc" name="content" role="textbox">${response.content}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="save-btn" value="Save" entryid="${id}">
+                        <input type="submit" class="save-btn" value="Save" entryid="${id}" role="button">
                     </div>
                 </form>
             </div>
