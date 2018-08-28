@@ -4,16 +4,16 @@ The Detailer Blog app allows users to post their most recent detail jobs that th
 ##Screenshots
 
 Landing Page:
-![home-page](Screenshots/home-page.png)
+![image](https://user-images.githubusercontent.com/1865449/44741886-582cd080-aab3-11e8-840e-f3bad5a7ada4.png)
 
 Login Page:
-![login-page](Screenshots/login-page.png)
+![image](https://user-images.githubusercontent.com/1865449/44741913-6975dd00-aab3-11e8-9699-f7bfae6d8b93.png)
 
 User Dashboard:
-![dashboard](Screenshots/dashboard-page.png)
+![image](https://user-images.githubusercontent.com/1865449/44741940-7a265300-aab3-11e8-8613-33c292e76eb3.png)
 
 Mobile Application Fully Responsive:
-<img src="Screenshots/mobile-dashboard.png" width="300">
+<img src="https://user-images.githubusercontent.com/1865449/44741816-1ac84300-aab3-11e8-8138-d46bb9e1c7e8.png" width="300">
 
 ## Built With
 ## Front End 
