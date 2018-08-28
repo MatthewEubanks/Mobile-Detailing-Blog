@@ -190,14 +190,14 @@ input[type=submit]:hover,
 /* Style the container */
 #hide {
   border-radius: 5px;
-  background-color: #b3050598;
+  background-color: #b30505;
   padding: 20px;
   max-width: 8000px;
   margin: auto;
 }
 .head-txt {
   border-radius: 5px;
-  background-color: #5e5e5e73;
+  background-color: #5e5e5eef;
   padding: 20px;
   max-width: 550px;
   margin: auto;

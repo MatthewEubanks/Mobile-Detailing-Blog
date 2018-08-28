@@ -42,7 +42,7 @@ function showBlogPosts() {
     $.getJSON("/posts", function (data) {
         for (let i = 0; i < data.length; i++) {
             $(`<div class="blogContainer"><div class="content">
-                <img src="${data[i].picture}">
+                <img src="${data[i].picture}" alt="Car Picture">
                 <h3><a href ="#" id="${data[i].id}" class="title">${data[i].title}</a></h3>
                 </div>`).appendTo(".blogPosts");
         }
@@ -72,7 +72,7 @@ function renderSinglePost(response) {
     var singlePost = `
     <div class="blogContainer" id="singlePost">
         <div class="content">
-            <img src="${response.picture}">
+            <img src="${response.picture}" alt="Car Picture">
                 <h3>
                     <a href ="#" id="${response.id}" class="title">${response.title}</a>
                 </h3>
@@ -375,7 +375,7 @@ function renderUserHome(userEntries) {
     for (var i = 0; i < thisUserEntry.length; i++) {
         html += `<div class="blogContainer">
                     <div class="content">
-                    <img src="${thisUserEntry[i].picture}">
+                    <img src="${thisUserEntry[i].picture}" alt="Car Picture">
                         <h3>
                             <a href ="#" id="${thisUserEntry[i].id}" class="title">${thisUserEntry[i].title}</a>
                         </h3>
@@ -548,7 +548,7 @@ function renderPostToEdit(response) {
                             <label for="picture">Image URL</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="picture" name="picture" value="${response.picture}" >
+                            <input type="text" id="picture" name="picture" value="${response.picture}">
                         </div>
                     </div>
                     <div class="row">
