@@ -51,9 +51,9 @@ function showBlogPosts() {
 
 function displayHomePage() {
 
-    const showLogin = renderLoginPage();
+    const showHome = showBlogPosts();
     $('.new').hide();
-    $('.blogPosts').html(showLogin);
+    $('.blogPosts').html(showHome);
     $('.blogPosts').show();
 }
 
