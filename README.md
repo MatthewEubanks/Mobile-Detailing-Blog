@@ -4,7 +4,7 @@ The Detailer Blog app allows users to post their most recent detail jobs that th
 ##Screenshots
 
 Landing Page:
-![image](https://user-images.githubusercontent.com/1865449/44741886-582cd080-aab3-11e8-840e-f3bad5a7ada4.png)
+![image](https://user-images.githubusercontent.com/1865449/44755146-c1bfd580-aad9-11e8-824e-edc3e8b74119.png)
 
 Login Page:
 ![image](https://user-images.githubusercontent.com/1865449/44741913-6975dd00-aab3-11e8-9699-f7bfae6d8b93.png)
