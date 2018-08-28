@@ -109,6 +109,7 @@ img {
 
 input[type="email"],
 input[type="password"] {
+  font-family: 'Orbitron', sans-serif;
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -122,6 +123,7 @@ input[type="password"] {
 input[type=text],
 select,
 textarea {
+  font-family: 'Orbitron', sans-serif;
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -140,6 +142,7 @@ label {
 /* Style the submit button */
 
 input[type=submit] {
+  font-family: 'Orbitron', sans-serif;
   background-color: #4CAF50;
   color: white;
   padding: 12px 20px;
@@ -151,6 +154,7 @@ input[type=submit] {
 }
 
 .edit-button {
+  font-family: 'Orbitron', sans-serif;
   background-color: #4CAF50;
   color: white;
   padding: 12px 20px;
@@ -162,6 +166,7 @@ input[type=submit] {
 }
 
 .delete-button {
+  font-family: 'Orbitron', sans-serif;
   background-color: rgb(216, 56, 56);
   color: white;
   padding: 12px 20px;
@@ -300,6 +305,7 @@ input[type=submit]:hover,
 .submit-btn,
 .signUp-btn,
 .login-btn {
+  font-family: 'Orbitron', sans-serif;
   width: 35%;
   margin-top: 15px;
   padding: 12px;

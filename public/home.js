@@ -42,8 +42,8 @@ function showBlogPosts() {
     $.getJSON("/posts", function (data) {
         for (let i = 0; i < data.length; i++) {
             $(`<div class="blogContainer"><div class="content">
-                <img src="">
-                <h3><a href ="#" entry-id="${data[i].id}" class="title">${data[i].title}</a></h3>
+                <img src="${data[i].picture}">
+                <h3><a href ="#" id="${data[i].id}" class="title">${data[i].title}</a></h3>
                 </div>`).appendTo(".blogPosts");
         }
     });
@@ -67,7 +67,8 @@ function homeButton() {
 
 //SINGLE POST PAGE
 function renderSinglePost(response) {
-    return `
+    var userName = sessionStorage.getItem("username");
+    var singlePost =  `
     <div class="blogContainer" id="singlePost">
         <div class="content">
             <img src="${response.picture}">
@@ -75,16 +76,17 @@ function renderSinglePost(response) {
                     <a href ="#" id="${response.id}" class="title">${response.title}</a>
                 </h3>
             <p>${response.content}</p>
-        </div>
-        <!--<div class="author">
-            <p>${response.author}</p>
-        </div> -->
-        <div class="change-buttons" >
+        </div>`;
+        if (userName == "" || userName == undefined) {
+            singlePost += `</div>`;
+        } else {
+            singlePost += `<div class="change-buttons" >
             <button class="edit-button" data-entryid="${response.id}">Edit</button>    
             <button class="delete-button" data-entryid="${response.id}">Delete</button>    
         </div>
     </div>
-    `;
+    `;}
+    return singlePost;
 }
 
 function displayIndividualPost(response) {
@@ -113,6 +115,7 @@ function getIndividualPost(id, callback) {
 function handleTitleClick() {
     $('.area').on('click', '.title', function () {
         const id = $(this).attr('id');
+        console.log(id);
         getIndividualPost(id);
     });
 }
@@ -625,24 +628,29 @@ function handleDeleteButton() {
     $('.area').on('click', '.delete-button', function (event) {
         event.preventDefault();
         const id = $(this).data('entryid');
+        const confirmDelete = confirm("Are you sure you want to delete this?");
+        if (!confirmDelete) {
 
-        $.ajax({
-                type: "DELETE",
-                url: '/posts/' + id + '?' + id,
-                dataType: "json",
-                contentType: 'application/json',
-                headers: {
-                    Authorization: `Bearer ${jwt}`
-                }
-            })
-            .done(function (result) {
-                showDashboard(result);
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.error(jqXHR);
-                console.error(error);
-                console.error(errorThrown);
-            });
+        } else {
+
+            $.ajax({
+                    type: "DELETE",
+                    url: '/posts/' + id + '?' + id,
+                    dataType: "json",
+                    contentType: 'application/json',
+                    headers: {
+                        Authorization: `Bearer ${jwt}`
+                    }
+                })
+                .done(function (result) {
+                    showDashboard(result);
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.error(jqXHR);
+                    console.error(error);
+                    console.error(errorThrown);
+                });
+        }
     });
 
 }
@@ -675,6 +683,7 @@ function eventHandlers() {
     handleEditButton();
     handleDeleteButton();
     saveEditButton();
+    showBlogPosts();
 }
 
 $(eventHandlers);
