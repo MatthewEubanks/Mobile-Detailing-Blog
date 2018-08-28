@@ -1,17 +1,6 @@
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
-// var authorSchema = mongoose.Schema({
-//     firstName: String,
-//     lastName: String,
-//     userName: {
-//         type: String,
-//         unique: true
-//     }
-// });
-
-//var commentSchema = mongoose.Schema({ content: String });
-
 var blogPostSchema = mongoose.Schema({
     title: String,
     content: String,

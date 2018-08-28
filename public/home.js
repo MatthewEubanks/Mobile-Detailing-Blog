@@ -55,6 +55,7 @@ function displayHomePage() {
     $('.new').hide();
     $('.blogPosts').html(showHome);
     $('.blogPosts').show();
+    $('#hide').show();
 }
 
 function homeButton() {
@@ -68,7 +69,7 @@ function homeButton() {
 //SINGLE POST PAGE
 function renderSinglePost(response) {
     var userName = sessionStorage.getItem("username");
-    var singlePost =  `
+    var singlePost = `
     <div class="blogContainer" id="singlePost">
         <div class="content">
             <img src="${response.picture}">
@@ -77,21 +78,23 @@ function renderSinglePost(response) {
                 </h3>
             <p>${response.content}</p>
         </div>`;
-        if (userName == "" || userName == undefined) {
-            singlePost += `</div>`;
-        } else {
-            singlePost += `<div class="change-buttons" >
+    if (userName == "" || userName == undefined) {
+        singlePost += `</div>`;
+    } else {
+        singlePost += `<div class="change-buttons" >
             <button class="edit-button" data-entryid="${response.id}">Edit</button>    
             <button class="delete-button" data-entryid="${response.id}">Delete</button>    
         </div>
     </div>
-    `;}
+    `;
+    }
     return singlePost;
 }
 
 function displayIndividualPost(response) {
     const singlePost = renderSinglePost(response);
     $('.blogPosts').hide();
+    $('#hide').hide();
     $('.new').html(singlePost);
     $('.new').show();
 }
@@ -168,6 +171,13 @@ function renderSignUp() {
                 <input class="signUp-form" type="password" id="password-confirm" name="password" placeholder="Confirm Password" required>
             </div>
         </div>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Account created! Please, log in!</p>
+            </div>
+        </div>
         <div class="row">
             <input type="submit" class="signUp-btn" value="Submit">
         </div>
@@ -179,6 +189,7 @@ function renderSignUp() {
 function displaySignUp() {
     const signUpPage = renderSignUp();
     $('.blogPosts').hide();
+    $('#hide').hide();
     $('.new').html(signUpPage);
     $('.new').show();
 }
@@ -280,6 +291,7 @@ function renderLoginPage() {
 function displayLoginPage() {
     const loginPage = renderLoginPage();
     $('.blogPosts').hide();
+    $('#hide').hide();
     $('.new').html(loginPage);
     $('.new').show();
 }
@@ -328,6 +340,9 @@ function loginSuccess() {
                 })
                 //call failed
                 .fail(function (err) {
+                    for (let i =0; i < err.length; i++) {
+                        console.log(err);
+                    }
                     alert('Login Failed. Try again or Sign Up.');
                 });
         }
@@ -383,6 +398,7 @@ function displayDashboard(userEntries) {
     const userHome = renderUserHome(userEntries);
     //$('#main-page').hide();
     $('.navbar').hide();
+    $('#hide').hide();
     $('.area').html(userHome);
     $('.area').show();
 }
@@ -455,9 +471,9 @@ function renderNewPost() {
 function displayNewPostPage() {
     const newPost = renderNewPost();
     $('.blogPosts').hide();
+    $('#hide').hide();
     $('.new').html(newPost);
     $('.new').show();
-    //renderNewPost();
 }
 //handle new detail button clicked
 function handleNewPostBtn() {
@@ -554,6 +570,7 @@ function renderPostToEdit(response) {
 function showEdit(response) {
     const editPost = renderPostToEdit(response);
     $('.new').hide();
+    $('#hide').hide();
     $('.blogPosts').html(editPost);
     $('.blogPosts').show();
 }
