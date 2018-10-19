@@ -1,11 +1,11 @@
 language: node_js
 node_js: node
 services:
-- mongodb
+  - mongodb
 deploy:
   provider: heroku
   api_key:
     secure: 70204ff5-1109-4a5a-bc2b-95a123876c50
   app: secure-everglades-11196
   on:
-    repo: matteprg/matteprg.github.io
+    repo: matteprg/Mobile-Detailing-Blog
