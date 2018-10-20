@@ -3,7 +3,7 @@ node_js: node
 deploy:
   provider: heroku
   api_key:
-    secure: 0006b29b-356d-4d96-a69e-40b7dccdc1eb
+    secure: 516f157e-4567-4a95-81a3-d200b20a38eb
   app: mobile-detailer-props-blog
   on:
     repo: matteprg/Mobile-Detailing-Blog
