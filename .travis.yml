@@ -6,4 +6,4 @@ deploy:
     secure: 516f157e-4567-4a95-81a3-d200b20a38eb
   app: mobile-detailer-props-blog
   on:
-    repo: matteprg/Mobile-Detailing-Blog
+    repo: MatthewEubanks/Mobile-Detailing-Blog
